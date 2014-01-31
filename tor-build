@@ -1,0 +1,32 @@
+
+
+. ./tcz-config
+test -z "$prj" && { echo tcz-config not found; exit 1; }
+
+cd $prj_dir
+./configure --disable-Werror --sysconfdir=/opt
+make clean
+make
+sudo make install
+cd ..
+
+touch label
+su rm -rf $prj ${prj}-doc
+mkdir -p ${prj}
+mkdir -p ${prj}-doc
+
+sudo find /usr -cnewer $arc/label | while read file;do
+  test -d $file && continue
+  echo -n $file
+  dir=$(dirname $file)
+  if echo $file | grep '/usr/local/share' >/dev/null 2>&1; then
+    xprj="$prj-doc"
+  else
+    xprj="$prj"
+  fi
+  sudo mkdir -p ${xprj}/$dir
+  sudo cp $file ${xprj}/$dir
+  sudo rm $file
+  echo " [$xprj] OK"
+done
+rm label

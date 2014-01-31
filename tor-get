@@ -1,0 +1,2 @@
+wget -c -O tor-0.2.4.20.tar.gz 'https://www.torproject.org/dist/tor-0.2.4.20.tar.gz'
+tar xzvf tor-0.2.4.20.tar.gz

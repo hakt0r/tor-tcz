@@ -1,0 +1,12 @@
+Title:          tor.tcz
+Description:    anonymizing overlay network for TCP (TESTING)
+Version:        0.2.4.20
+Author:         The Tor Project
+Original-site:  https://www.torproject.org/
+Copying-policy: GPL
+Size:           400K
+Extension_by:   anx
+Comments:       ----
+Change-log:     2014/01/31
+Current:        2014/01/31
+
