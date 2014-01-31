@@ -1,4 +1,5 @@
 prj='tor'
 version="0.2.4.20"
+prj_fmt="tar.gz"
 prj_dir="${prj}-${version}"
-prj_url="https://www.torproject.org/dist/${prj}-${version}.tar.gz"
+prj_url="https://www.torproject.org/dist/${prj}-${version}${prj_fmt}"

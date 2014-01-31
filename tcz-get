@@ -1,0 +1,8 @@
+. ./tcz-config
+arc="${prj}-${version}${prj_fmt}"
+wget -c -O "$arc" "$prj_url"
+if echo $prj_fmt | grep bz >/dev/null 2>&1; then
+  tar xjvf $arc
+else
+  tar xzvf $arc
+fi
