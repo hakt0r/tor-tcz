@@ -3,19 +3,20 @@
 . ./tcz-config
 test -z "$prj" && { echo tcz-config not found; exit 1; }
 
+touch label
+
 cd $prj_dir
-./configure --disable-Werror --sysconfdir=/opt
-make clean
-make
+#./configure --disable-Werror --sysconfdir=/opt
+#make clean
+#make
 sudo make install
 cd ..
 
-touch label
-su rm -rf $prj ${prj}-doc
+sudo rm -rf $prj ${prj}-doc
 mkdir -p ${prj}
 mkdir -p ${prj}-doc
 
-sudo find /usr -cnewer $arc/label | while read file;do
+sudo find /usr -cnewer label | while read file;do
   test -d $file && continue
   echo -n $file
   dir=$(dirname $file)
